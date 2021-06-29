@@ -34,7 +34,6 @@ public class Autor {
 		this.nomeAutor = nomeAutor;
 		this.email = email;
 		this.descricao = desc;
-		this.dataCriacao = LocalDate.now();
 	}
 	
 	@Deprecated
