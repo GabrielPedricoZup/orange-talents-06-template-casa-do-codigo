@@ -16,56 +16,38 @@ import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 public class Autor {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@NotNull
 	@NotBlank
 	private String nomeAutor;
-	
+
 	@NotNull
-	@NotBlank 
+	@NotBlank
 	@Email
 	@Column(unique = true)
 	private String email;
-	
+
 	@NotNull
 	@NotBlank
 	@Size(max = 400)
 	private String descricao;
-	
+
 	@CreationTimestamp
 	private LocalDateTime dataCriacao;
-	
-	
-	
+
 	public Autor(@NotNull @NotBlank String nomeAutor, @NotNull @NotBlank @Email String email,
 			@NotNull @NotBlank @Size(max = 400) String descricao) {
 		this.nomeAutor = nomeAutor;
 		this.email = email;
 		this.descricao = descricao;
 	}
-	
+
 	@Deprecated
 	public Autor() {
-	}
-	
-	public Long getId() {
-		return id;
-	}
-	public String getNomeAutor() {
-		return nomeAutor;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public String getDescricao() {
-		return descricao;
-	}
-	public LocalDateTime getDataCriacao() {
-		return dataCriacao;
 	}
 
 	@Override
@@ -73,9 +55,5 @@ public class Autor {
 		return "Autor [id=" + id + ", nomeAutor=" + nomeAutor + ", email=" + email + ", descricao=" + descricao
 				+ ", dataCriacao=" + dataCriacao + "]";
 	}
-	
-	
-	
-	
-	
+
 }
