@@ -1,7 +1,8 @@
 package br.com.zupacademy.gabriel.pedrico.casadocodigo.models;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,24 +17,35 @@ import org.hibernate.annotations.CreationTimestamp;
 @Entity
 public class Autor {
 	
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@NotNull @NotBlank
+	
+	@NotNull
+	@NotBlank
 	private String nomeAutor;
-	@NotNull @NotBlank @Email
+	
+	@NotNull
+	@NotBlank 
+	@Email
+	@Column(unique = true)
 	private String email;
-	@NotNull @NotBlank @Size(max = 400)
+	
+	@NotNull
+	@NotBlank
+	@Size(max = 400)
 	private String descricao;
+	
 	@CreationTimestamp
-	private LocalDate dataCriacao;
+	private LocalDateTime dataCriacao;
 	
 	
 	
 	public Autor(@NotNull @NotBlank String nomeAutor, @NotNull @NotBlank @Email String email,
-			@NotNull @NotBlank @Size(max = 400) String desc) {
+			@NotNull @NotBlank @Size(max = 400) String descricao) {
 		this.nomeAutor = nomeAutor;
 		this.email = email;
-		this.descricao = desc;
+		this.descricao = descricao;
 	}
 	
 	@Deprecated
@@ -52,7 +64,7 @@ public class Autor {
 	public String getDescricao() {
 		return descricao;
 	}
-	public LocalDate getDataCriacao() {
+	public LocalDateTime getDataCriacao() {
 		return dataCriacao;
 	}
 
