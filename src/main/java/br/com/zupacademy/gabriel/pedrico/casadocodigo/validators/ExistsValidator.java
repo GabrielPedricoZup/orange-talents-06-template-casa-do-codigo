@@ -5,7 +5,7 @@ import javax.persistence.PersistenceContext;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class ExistsIdValidator implements ConstraintValidator<ExistsId, Object> {
+public class ExistsValidator implements ConstraintValidator<Exists, Object> {
 	
 	private String name;
 	private Class<?> domainClass;
@@ -14,7 +14,7 @@ public class ExistsIdValidator implements ConstraintValidator<ExistsId, Object> 
 	private EntityManager em;
 	
 	@Override
-	public void initialize(ExistsId params) {
+	public void initialize(Exists params) {
 		
 		name = params.fieldName();
 		domainClass = params.domainClass();

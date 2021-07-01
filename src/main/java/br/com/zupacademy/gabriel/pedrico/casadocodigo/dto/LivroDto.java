@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import br.com.zupacademy.gabriel.pedrico.casadocodigo.models.Autor;
 import br.com.zupacademy.gabriel.pedrico.casadocodigo.models.Categoria;
 import br.com.zupacademy.gabriel.pedrico.casadocodigo.models.Livro;
-import br.com.zupacademy.gabriel.pedrico.casadocodigo.validators.ExistsId;
+import br.com.zupacademy.gabriel.pedrico.casadocodigo.validators.Exists;
 
 public class LivroDto {
 			
@@ -55,11 +55,11 @@ public class LivroDto {
 	private LocalDate dataPublicacao;
 
 	@NotNull
-	@ExistsId(domainClass = Categoria.class, fieldName = "id")
+	@Exists(domainClass = Categoria.class, fieldName = "id")
 	private Long idCategoria;
 
 	@NotNull
-	@ExistsId(domainClass = Autor.class, fieldName = "id")
+	@Exists(domainClass = Autor.class, fieldName = "id")
 	private Long idAutor;
 
 	

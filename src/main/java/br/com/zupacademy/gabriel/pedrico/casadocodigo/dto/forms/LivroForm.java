@@ -21,7 +21,7 @@ import br.com.zupacademy.gabriel.pedrico.casadocodigo.models.Categoria;
 import br.com.zupacademy.gabriel.pedrico.casadocodigo.models.Livro;
 import br.com.zupacademy.gabriel.pedrico.casadocodigo.repositories.AutorRepository;
 import br.com.zupacademy.gabriel.pedrico.casadocodigo.repositories.CategoriaRepository;
-import br.com.zupacademy.gabriel.pedrico.casadocodigo.validators.ExistsId;
+import br.com.zupacademy.gabriel.pedrico.casadocodigo.validators.Exists;
 
 public class LivroForm {
 
@@ -56,11 +56,11 @@ public class LivroForm {
 	private LocalDate dataPublicacao;
 
 	@NotNull
-	@ExistsId(domainClass = Categoria.class, fieldName = "id")
+	@Exists(domainClass = Categoria.class, fieldName = "id",message = "Não existe a categoria com o Id informado")
 	private Long idCategoria;
 
 	@NotNull
-	@ExistsId(domainClass = Autor.class, fieldName = "id")
+	@Exists(domainClass = Autor.class, fieldName = "id")
 	private Long idAutor;
 
 	public LivroForm(@NotNull @NotBlank String titulo, @NotNull @NotBlank @Size(max = 500) String resumo,

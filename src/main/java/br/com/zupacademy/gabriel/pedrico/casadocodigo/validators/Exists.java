@@ -10,14 +10,14 @@ import javax.validation.Payload;
 
 @Target(value = { ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = ExistsIdValidator.class)
-public @interface ExistsId {
+@Constraint(validatedBy = ExistsValidator.class)
+public @interface Exists {
 	
 	Class<?> domainClass();
 	
 	String fieldName();
 	
-	String message() default "{br.com.zupacademy.gabriel.pedrico.casadocodigo.validators.ExistsId}";
+	String message() default "Nao existe um objeto com o Id informado";
 
 	Class<?>[] groups() default { };
 
