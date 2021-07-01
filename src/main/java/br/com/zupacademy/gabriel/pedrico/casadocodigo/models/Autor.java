@@ -56,4 +56,26 @@ public class Autor {
 				+ ", dataCriacao=" + dataCriacao + "]";
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public String getNomeAutor() {
+		return nomeAutor;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public LocalDateTime getDataCriacao() {
+		return dataCriacao;
+	}
+	
+	
+
 }

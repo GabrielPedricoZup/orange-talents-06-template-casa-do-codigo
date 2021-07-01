@@ -33,6 +33,14 @@ public class Categoria {
 	public String toString() {
 		return "Categoria [nome=" + nome + "]";
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
 	
 	
 	

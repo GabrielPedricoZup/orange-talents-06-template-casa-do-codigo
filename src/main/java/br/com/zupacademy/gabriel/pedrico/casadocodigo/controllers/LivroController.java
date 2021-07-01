@@ -1,13 +1,18 @@
 package br.com.zupacademy.gabriel.pedrico.casadocodigo.controllers;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.zupacademy.gabriel.pedrico.casadocodigo.dto.LivroDto;
 import br.com.zupacademy.gabriel.pedrico.casadocodigo.dto.forms.LivroForm;
 import br.com.zupacademy.gabriel.pedrico.casadocodigo.models.Livro;
 import br.com.zupacademy.gabriel.pedrico.casadocodigo.repositories.AutorRepository;
@@ -16,22 +21,31 @@ import br.com.zupacademy.gabriel.pedrico.casadocodigo.repositories.LivroReposito
 
 @RestController
 public class LivroController {
-		
+
 	@Autowired
 	private LivroRepository livroRepository;
 	@Autowired
 	private CategoriaRepository categoriaRepository;
 	@Autowired
 	private AutorRepository autorRepository;
-	
-	@PostMapping(value="/livros")
+
+	@PostMapping(value = "/livros")
 	@Transactional
-	public String cadastrar (@RequestBody @Valid LivroForm livroForm) {
-		
-		Livro livro = livroForm.conversor(autorRepository,categoriaRepository);
+	public String cadastrar(@RequestBody @Valid LivroForm livroForm) {
+
+		Livro livro = livroForm.conversor(autorRepository, categoriaRepository);
 		livroRepository.save(livro);
 		return livro.toString();
-		
+
 	}
-	
+
+	@GetMapping(value = "/livros")
+	public List<LivroDto> listar() {
+
+		List<Livro> livros = livroRepository.findAll();
+
+		return LivroDto.converter(livros);
+
+	}
+
 }
