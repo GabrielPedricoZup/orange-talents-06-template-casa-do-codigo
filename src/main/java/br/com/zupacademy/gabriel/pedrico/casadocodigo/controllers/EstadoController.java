@@ -19,7 +19,6 @@ import br.com.zupacademy.gabriel.pedrico.casadocodigo.repositories.EstadoReposit
 import br.com.zupacademy.gabriel.pedrico.casadocodigo.repositories.PaisRepository;
 
 @RestController
-//@RequestMapping(value="/estado")
 public class EstadoController {
 
 	private final EstadoRepository estadoRepository;

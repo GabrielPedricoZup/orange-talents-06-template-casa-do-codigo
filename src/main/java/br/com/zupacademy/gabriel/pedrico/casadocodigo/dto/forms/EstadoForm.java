@@ -8,7 +8,6 @@ import br.com.zupacademy.gabriel.pedrico.casadocodigo.models.Pais;
 import br.com.zupacademy.gabriel.pedrico.casadocodigo.repositories.PaisRepository;
 import br.com.zupacademy.gabriel.pedrico.casadocodigo.validators.Exists;
 
-//@UniqueValueIn(domainClass=Estado.class,fields= {"nome","pais"},aliases={"Pais","id"})
 public class EstadoForm {
 
 	@NotBlank
