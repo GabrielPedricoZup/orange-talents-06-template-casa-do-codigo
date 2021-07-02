@@ -30,6 +30,10 @@ public class Estado {
 		this.nome = nome;
 		this.pais = pais;
 	}
+	
+	@Deprecated
+	public Estado() {
+	}
 
 	public String getNome() {
 		return nome;
